@@ -5,7 +5,7 @@ import imp
 
 blend_dir = os.path.dirname(bpy.data.filepath)
 if blend_dir not in sys.path:
-   sys.path.append(blend_dir)
+    sys.path.append(blend_dir)
 
 import neighbourhood
 imp.reload(neighbourhood)
@@ -13,6 +13,13 @@ imp.reload(neighbourhood)
 import misc
 imp.reload(misc)
 
-misc.clear_objects()
+import mk_material
+imp.reload(mk_material)
 
-neighbourhood.build()
+if __name__ == "__main__":
+
+    misc.clear_objects()
+
+    neighbourhood.build()
+
+    mk_material()
